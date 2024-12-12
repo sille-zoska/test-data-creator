@@ -1,0 +1,26 @@
+{
+  "name": "testing-data",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "ts-node": {
+    "esm": true
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "prisma": "^6.0.1",
+    "prisma-generator-fake-data": "^0.14.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.1"
+  }
+}
