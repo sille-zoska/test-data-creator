@@ -9,20 +9,23 @@ generator client {
 
 generator fakeData {
   provider = "prisma-generator-fake-data"
-  // Choose your desired output path; it will be relative to `prisma` folder
   output   = "./fake-data.ts"
 }
 
-// Include all your models and enums below, same as in your main project
-// Example:
 model User {
   id            String          @id @default(cuid())
+  ///FAKE:faker.person.fullName()
   name          String?
+  ///FAKE:faker.internet.email()
   email         String          @unique
+  ///FAKE:faker.date.anytime()
   emailVerified DateTime?
+  ///FAKE:faker.image.avatar()
   image         String?
 
+  ///FAKE:faker.date.anytime()
   createdAt     DateTime @default(now())
+  ///FAKE:faker.date.anytime()
   updatedAt     DateTime @updatedAt
   posts         Post[]
   profile       Profile?
@@ -30,10 +33,15 @@ model User {
 
 model Post {
   id        String   @id @default(cuid())
+  ///FAKE:faker.string.uuid()
   userId    String
+  ///FAKE:faker.image.url()
   imageUrl  String
+  ///FAKE:faker.lorem.sentence()
   caption   String?
+  ///FAKE:faker.date.anytime()
   createdAt DateTime @default(now())
+  ///FAKE:faker.date.anytime()
   updatedAt DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -41,12 +49,19 @@ model Post {
 
 model Profile {
   id         String   @id @default(cuid())
+  ///FAKE:faker.string.uuid()
   userId     String   @unique
+  ///FAKE:faker.lorem.paragraph()
   bio        String?
+  ///FAKE:faker.image.avatar()
   avatarUrl  String?
+  ///FAKE:faker.location.city()
   location   String?
+  ///FAKE:[faker.lorem.word(), faker.lorem.word(), faker.lorem.word()]
   interests  String[] @default([])
+  ///FAKE:faker.date.anytime()
   createdAt  DateTime @default(now())
+  ///FAKE:faker.date.anytime()
   updatedAt  DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)

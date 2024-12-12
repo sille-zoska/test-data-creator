@@ -6,28 +6,28 @@ import Decimal from 'decimal.js';
 
 export function fakeUser() {
   return {
-    name: undefined,
+    name: faker.person.fullName(),
     email: faker.internet.email(),
-    emailVerified: undefined,
-    image: undefined,
+    emailVerified: faker.date.anytime(),
+    image: faker.image.avatar(),
     updatedAt: faker.date.anytime(),
   };
 }
 export function fakeUserComplete() {
   return {
     id: faker.string.uuid(),
-    name: undefined,
+    name: faker.person.fullName(),
     email: faker.internet.email(),
-    emailVerified: undefined,
-    image: undefined,
-    createdAt: new Date(),
+    emailVerified: faker.date.anytime(),
+    image: faker.image.avatar(),
+    createdAt: faker.date.anytime(),
     updatedAt: faker.date.anytime(),
   };
 }
 export function fakePost() {
   return {
-    imageUrl: faker.lorem.words(5),
-    caption: undefined,
+    imageUrl: faker.image.url(),
+    caption: faker.lorem.sentence(),
     updatedAt: faker.date.anytime(),
   };
 }
@@ -35,17 +35,17 @@ export function fakePostComplete() {
   return {
     id: faker.string.uuid(),
     userId: faker.string.uuid(),
-    imageUrl: faker.lorem.words(5),
-    caption: undefined,
-    createdAt: new Date(),
+    imageUrl: faker.image.url(),
+    caption: faker.lorem.sentence(),
+    createdAt: faker.date.anytime(),
     updatedAt: faker.date.anytime(),
   };
 }
 export function fakeProfile() {
   return {
-    bio: undefined,
-    avatarUrl: undefined,
-    location: undefined,
+    bio: faker.lorem.paragraph(),
+    avatarUrl: faker.image.avatar(),
+    location: faker.location.city(),
     updatedAt: faker.date.anytime(),
   };
 }
@@ -53,11 +53,11 @@ export function fakeProfileComplete() {
   return {
     id: faker.string.uuid(),
     userId: faker.string.uuid(),
-    bio: undefined,
-    avatarUrl: undefined,
-    location: undefined,
-    interests: [],
-    createdAt: new Date(),
+    bio: faker.lorem.paragraph(),
+    avatarUrl: faker.image.avatar(),
+    location: faker.location.city(),
+    interests: [faker.lorem.word(), faker.lorem.word(), faker.lorem.word()],
+    createdAt: faker.date.anytime(),
     updatedAt: faker.date.anytime(),
   };
 }
